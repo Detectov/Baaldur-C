@@ -8,7 +8,9 @@ using namespace std;
 int mainMenu(){
     int option;
     while(option != 3){
-        cout << "Main Menu\n1. Start Game\n2. Load Game\n3. Exit to menu" << endl;
+        cout << "================" << endl;
+        cout << " Main Menu\n1. Start Game\n2. Load Game\n3. Exit to menu" << endl;
+        cout << "================" << endl;
         cin >> option;
         switch (option){
             case 1:
