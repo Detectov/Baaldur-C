@@ -7,14 +7,18 @@ using namespace std;
 
 
 void gameMenu();
-void startGame();
+void newGame();
 void loadGame();
 
+void cleanConsole(){
+    system("CLS");
+}
 
 void mainMenu() {
     int option = 0; 
 
     while (true) { 
+        cleanConsole();
         cout << "=======================" << endl;
         cout << " Welcome to Baaldur-C!\n1. Enter Game\n2. Exit Game" << endl;
         cout << "=======================" << endl;
@@ -33,19 +37,24 @@ void mainMenu() {
     }
 }
 
+void newGame(){
+    cleanConsole();
+    cout << "Starting new game..." << endl;
+}
 
 void gameMenu() {
     int option = 0; 
 
-    while (true) { // Main loop for the game menu
+    while (option != 3) { 
+        cleanConsole();
         cout << "================" << endl;
-        cout << " Game Menu\n1. Start Game\n2. Load Game\n3. Exit to Main Menu" << endl;
+        cout << "  Game Menu\n1. Start New Game\n2. Load Game\n3. Exit to Main Menu" << endl;
         cout << "================" << endl;
         cin >> option;
 
         switch (option) {
             case 1:
-                //startGame(); 
+                newGame(); 
                 break;
             case 2:
                 //loadGame(); 
