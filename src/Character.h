@@ -32,7 +32,7 @@ class Character
         CharacterClass charClass;
 
         int level;
-        int gold;
+        float gold;
         int skillPoints;
         int healthPoints;
         int manaPoints;

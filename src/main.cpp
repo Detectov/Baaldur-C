@@ -37,10 +37,6 @@ void mainMenu() {
     }
 }
 
-void newGame(){
-    cleanConsole();
-    cout << "Starting new game..." << endl;
-}
 
 void gameMenu() {
     int option = 0; 
@@ -65,6 +61,11 @@ void gameMenu() {
                 cout << "Invalid option, please choose a valid one." << endl;
         }
     }
+}
+
+void newGame(){
+    
+    cout << "Starting new game..." << endl;
 }
 
 
