@@ -2,12 +2,13 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include "Character.h"
+
 
 using namespace std;
 
 
 void gameMenu();
-void newGame();
 void loadGame();
 
 void cleanConsole(){
@@ -50,7 +51,7 @@ void gameMenu() {
 
         switch (option) {
             case 1:
-                newGame(); 
+                Character character = newGame(); 
                 break;
             case 2:
                 //loadGame(); 
@@ -63,9 +64,9 @@ void gameMenu() {
     }
 }
 
-void newGame(){
+Character Menu:: newGame(){
     
-    cout << "Starting new game..." << endl;
+    
 }
 
 

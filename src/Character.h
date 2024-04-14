@@ -7,22 +7,43 @@
 
 using namespace std;
 
-enum class Gender {Male, Female};
-enum class Race {Human, Elf, Dwarf, Orc, Undead};
-enum class Orientation {Good, Neutral, Evil};
-enum class CharacterClass {Warrior, Archer, Mage,Thief};
-
 class Character
 {
     public:
-        Character();
-        Character(const string& name, Gender gender, Race race, Orientation orientation, CharacterClass charClass);
-
-
-        void displayCharInfo() const;
-        void levelUp();
+        enum Gender {Male, Female};
+        enum Race {Human, Elf, Dwarf, Orc, Undead};
+        enum Orientation {Good, Neutral, Evil};
+        enum CharacterClass {Warrior, Archer, Mage, Thief};
+        Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass);
 
         string getName() const;
+        Gender getGender() const;
+        Race getRace() const;
+        Orientation getOrientation() const;
+        CharacterClass getCharClass() const;
+        string getInitialWeapon() const;
+        int getGold() const;
+        int getSkillPoints() const;
+        int getHealthPoints() const;
+        int getManaPoints() const;
+        int getIntellect() const;
+        int getStrength() const;
+        int getAgility() const;
+        int getLevel() const;
+
+        void setInitialWeapon(string weapon);
+        void setGold(int gold);
+        void setSkillPoints(int skillPoints);
+        void setHealthPoints(int healthPoints);
+        void setManaPoints(int manaPoints);
+        void setIntellect(int intellect);
+        void setStrength(int strength);
+        void setAgility(int agility);
+        void setLevel(int level);
+        void addItem(const string& item);
+        const vector<string>& getItems() const;
+
+        
     
     private:
         string name;
@@ -30,6 +51,7 @@ class Character
         Race race;
         Orientation orientation;
         CharacterClass charClass;
+        string initialWeapon;
 
         int level;
         float gold;
@@ -39,9 +61,8 @@ class Character
         int intellect;
         int strength;
         int agility;
+        vector<string> items;
 
-
-        void initializeAttributes();
     
 };
 #endif // CHARACTER_H
