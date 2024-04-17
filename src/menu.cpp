@@ -567,7 +567,6 @@ void Menu::showGameMenu(Character& character) {
                     cout << "  Skill Tree" << endl;
                     cout << "================" << endl;
                     cout << "Total Skill Points: " << skillPoints << endl;
-                    cout << "Choose a skill to unlock: " << endl;
 
                     switch(character.getCharClass()){
                         case Character::Warrior:
@@ -715,7 +714,11 @@ void Menu::showGameMenu(Character& character) {
 
                     }
                 } 
+                else {
+                    cout << "You don't have enough skill points to unlock a new skill." << endl;
+                }
                 break;
+        
             case 4:
                 //goOnAdventure(character); 
                 break;
