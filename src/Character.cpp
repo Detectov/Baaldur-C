@@ -31,7 +31,7 @@ Character:: Gender Character::getGender() const {
 }
 
 Character:: Race Character::getRace() const {
-    return;
+    return race;
 }
 
 Character:: Orientation Character::getOrientation() const {

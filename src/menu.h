@@ -9,6 +9,8 @@
 
 class Menu {
 public:
+    Menu();
+    ~Menu();
     void startMenu();
     void mainMenu();
     void showStartMenu();

@@ -1,0 +1,1 @@
+Pedro 1 4 2 2 Mage Staff 0 1 100 50 5 5 5 1

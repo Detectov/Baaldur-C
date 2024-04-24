@@ -4,6 +4,19 @@
 
 using namespace std;
 
+Menu::Menu() {
+}
+
+Menu::~Menu() {
+}
+
+void Menu :: charInfo(const Character &character){
+    cout << "================" << endl;
+    cout << "  Character Info" << endl;
+    cout << "================" << endl;
+    cout << "Name: " << character.getName() << endl;
+}
+
 void cleanConsole(){
     system("CLS");
 }
@@ -262,10 +275,11 @@ void Menu::showGameMenu(Character& character) {
         cin >> option;
 
         switch (option) {
-            case 1:
+            case 1:{
                 charInfo(character); 
                 break;
-            case 2:
+            }
+            case 2:{
                 switch (character.getCharClass()){
                     case Character:: Warrior:{
                         cout << "================" << endl;
@@ -559,8 +573,9 @@ void Menu::showGameMenu(Character& character) {
                     }
                 }
                 break;
+                }
             }
-            case 3:
+            case 3:{
                 int skillPoints = character.getSkillPoints();
                 if (skillPoints >= 5){
                     cout << "================" << endl;
@@ -569,7 +584,7 @@ void Menu::showGameMenu(Character& character) {
                     cout << "Total Skill Points: " << skillPoints << endl;
 
                     switch(character.getCharClass()){
-                        case Character::Warrior:
+                        case Character::Warrior:{
                             cout << "1. Power Strike - 5 Points" << endl;
                             cout << "2. Iron Defense - 12 Points" << endl;
                             cout << "3. War Cry - 2S Points" << endl;
@@ -604,7 +619,8 @@ void Menu::showGameMenu(Character& character) {
                             }
 
                             break;
-                        case Character::Archer:
+                        }
+                        case Character::Archer:{
                             cout << "1. Quick Shot - 5 Points" << endl;
                             cout << "2. Eagle Eye - 18 Points" << endl;
                             cout << "3. Arrow Burst - 27 Points" << endl;
@@ -638,6 +654,7 @@ void Menu::showGameMenu(Character& character) {
                             }
 
                             break;
+                        }
                         case Character::Mage:{
                             cout << "1. Fireball - 5 Points" << endl;
                             cout << "2. Ice Beam - 15 Points" << endl;
@@ -671,7 +688,8 @@ void Menu::showGameMenu(Character& character) {
                                 cout << "Invalid option, please choose a valid one." << endl;
                             }
                             break;
-                        case Character::Thief:
+                        }
+                        case Character::Thief:{
                             cout << "1. Backstab - 5 Points" << endl;
                             cout << "2. Focus - 14 Points" << endl;
                             cout << "3. Lethal Stab - 25 Points" << endl;
@@ -704,9 +722,11 @@ void Menu::showGameMenu(Character& character) {
                                 cout << "Invalid option, please choose a valid one." << endl;
                             }
                             break;
-                        default:
+                        }
+                        default:{
                             cout << "Invalid option, please choose a valid one." << endl;
                             break;
+
                         }
                         
 
@@ -718,17 +738,29 @@ void Menu::showGameMenu(Character& character) {
                     cout << "You don't have enough skill points to unlock a new skill." << endl;
                 }
                 break;
-        
-            case 4:
+            }
+            
+            case 4:{
                 //goOnAdventure(character); 
+                cout << "Adventure not implemented yet" << endl;
                 break;
-            case 5:
-                saveGame(character);
+            }
+            case 5: {
+                if (true) {
+                    saveGame(character);
+                }
                 break;
-            case 6:
-                return; 
-            default:
-                cout << "Invalid option, please choose a valid one." << endl;
+            }
+            case 6:{
+                cout << "Adventure not implemented yet" << endl;
+                break;
+            } 
+            default:{
+                cout << "Invalid option, please choose a valid one." << endl;   
+                break;
+            }
+
         }
+        
     }
 }
