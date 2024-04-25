@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <map>
 #include "Character.h"
 
 class Menu {

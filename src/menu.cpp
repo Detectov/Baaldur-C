@@ -1,8 +1,11 @@
+#include <filesystem>
 #include "menu.h"
 
 
 
 using namespace std;
+
+namespace fs = std::filesystem;
 
 Menu::Menu() {
 }
@@ -15,6 +18,24 @@ void Menu :: charInfo(const Character &character){
     cout << "  Character Info" << endl;
     cout << "================" << endl;
     cout << "Name: " << character.getName() << endl;
+    cout << "Level: " << character.getLevel() << endl;
+    cout << "Class: " << Character::classToString(character.getCharClass()) << endl;
+    cout << "Race: " << Character::raceToString(character.getRace()) << endl;
+    cout << "Orientation: " << Character::orientationToString(character.getOrientation()) << endl;
+    cout << "Gold: " << character.getGold() << "G" << endl;
+    cout << "Skill Points: " << character.getSkillPoints() << endl;
+    cout << "Initial Weapon: " << character.getInitialWeapon() << endl;
+    cout << "Health Points: " << character.getHealthPoints() << endl;
+    cout << "Mana Points: " << character.getManaPoints() << endl;
+    cout << "Intellect: " << character.getIntellect() << endl;
+    cout << "Strength: " << character.getStrength() << endl;
+    cout << "Agility: " << character.getAgility() << endl;
+
+    cout << "Press any key to continue..." << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+    
+    
 }
 
 void cleanConsole(){
@@ -178,27 +199,47 @@ Character Menu:: createChar() {
 }
 
 void Menu::saveGame(Character& character) {
-    ofstream file("savegame.txt", ios_base::app);
-    if (file.is_open()){
-        file << character.getName() << " "
-            << character.getGender() << " "
-            << character.getRace() << " "
-            << character.getOrientation() << " "
-            << character.getCharClass() << " "
-            << character.getInitialWeapon() << " "
-            << character.getGold() << " "
-            << character.getSkillPoints() << " "
-            << character.getHealthPoints() << " "
-            << character.getManaPoints() << " "
-            << character.getIntellect() << " "
-            << character.getStrength() << " "
-            << character.getAgility() << " "
-            << character.getLevel() << endl;
-        file.close();
+    string path = fs::current_path().string();
+
+    map<string, Character> characterMap;
+    ifstream inFile(path + "./savegame.txt");
+    string line;
+    
+    if (inFile.is_open()){
+        while (getline(inFile, line)){
+            istringstream lineStream(line);
+            Character readChar;
+            lineStream >> readChar;
+            characterMap[readChar.getName()] = readChar;
+        }
+        inFile.close();
     }
     else {
         cout << "Unable to open file" << endl;
-    } 
+        cout << "Press any key to continue..." << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+        return;
+    }
+    characterMap[character.getName()] = character;
+
+    ofstream outFile("savegame.txt", ios::trunc);
+    if (outFile.is_open()){
+        for (const auto& pair : characterMap){
+            outFile << pair.second;
+        }
+        outFile.close();
+        cout << "Game saved successfully!" << endl;
+        cout << "Press any key to continue..." << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+    }
+    else {
+        cout << "Unable to open file" << endl;
+        cout << "Press any key to continue..." << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+    }
 }
 
 void Menu::loadGame(){
@@ -211,14 +252,15 @@ void Menu::loadGame(){
         }
         file.close();
 
+        cleanConsole();
         cout << "================" << endl;
         cout << "  Load Game" << endl;
         cout << "================" << endl;
         for (int i = 0; i < games.size(); i++){
             istringstream ss(games[i]);
-            string name;
-            int level;
-            ss >> name >> level;
+            string name, item;
+            int gender, race, orientation, charClass, gold, skillPoints, healthPoints, manaPoints, intellect, strength, agility, level;
+            ss >> name >> gender >> race >> orientation >> charClass >> item >> gold >> skillPoints >> healthPoints >> manaPoints >> intellect >> strength >> agility >> level;
             cout << i + 1 << ". " << name << " - Level " << level << endl; 
         }
 
@@ -230,7 +272,7 @@ void Menu::loadGame(){
             string selectedGame = games[option - 1];
             istringstream ss(selectedGame);
             string name, item;
-            int gender, race, orientation, charClass, level, gold, skillPoints, healthPoints, manaPoints, intellect, strength, agility;
+            int gender, race, orientation, charClass, gold, skillPoints, healthPoints, manaPoints, intellect, strength, agility, level;
             ss >> name >> gender >> race >> orientation >> charClass >> item >> gold >> skillPoints >> healthPoints >> manaPoints >> intellect >> strength >> agility >> level;
 
             Character::Gender charGender = static_cast<Character::Gender>(gender);
@@ -239,6 +281,7 @@ void Menu::loadGame(){
             Character::CharacterClass charCharClass = static_cast<Character::CharacterClass>(charClass);
 
             Character loadedChar(name, charGender, charRace, charOrientation, charCharClass);
+            loadedChar.setInitialWeapon(item);
             loadedChar.setGold(gold);
             loadedChar.setSkillPoints(skillPoints);
             loadedChar.setHealthPoints(healthPoints);
@@ -249,21 +292,32 @@ void Menu::loadGame(){
             loadedChar.setLevel(level);
 
             cout << "Game loaded successfully!" << endl;
+            cout << "Press any key to continue..." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.get();
             showGameMenu(loadedChar);
         }
         else {
             cout << "Invalid option, please choose a valid one." << endl;
+            cout << "Press any key to continue..." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.get();
             loadGame();
         }
     }
     else {
         cout << "Unable to open file" << endl;
+        cout << "Press any key to continue..." << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
     }
 }
+
 
 void Menu::gameMenu() {
     cout << "================" << endl;
     cout << "  Game Menu\n1. Show Character Info\n2. Buy equipment\n3. Skill Tree\n4. Go on an adventure!\n5. Save Game\n6. Exit to main menu" << endl;
+    cout << "================" << endl;
 }
 
 void Menu::showGameMenu(Character& character) {
@@ -341,9 +395,15 @@ void Menu::showGameMenu(Character& character) {
                                 character.addItem(item);
                                 character.setGold(character.getGold() - price);
                                 cout << "Item bought successfully!" << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                             else {
                                 cout << "You don't have enough gold to buy this item." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                         }
                         else if (shopOption == 9){
@@ -351,9 +411,13 @@ void Menu::showGameMenu(Character& character) {
                         }
                         else {
                             cout << "Invalid option, please choose a valid one." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                         }
+                        break;
                     }
-                    break;
+                    
                     case Character::Archer:{
                         cout << "================" << endl;
                         cout << " Shop " << endl;
@@ -414,9 +478,15 @@ void Menu::showGameMenu(Character& character) {
                                 character.addItem(item);
                                 character.setGold(character.getGold() - price);
                                 cout << "Item bought successfully!" << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                             else {
                                 cout << "You don't have enough gold to buy this item." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                         }
                         else if (shopOption == 9){
@@ -424,9 +494,13 @@ void Menu::showGameMenu(Character& character) {
                         }
                         else {
                             cout << " Invalid option, please choose a valid one." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                     }
+                    break;
                 }
-                break;
+                
                 case Character::Mage:{
                     cout << "================" << endl;
                     cout << " Shop " << endl;
@@ -487,9 +561,15 @@ void Menu::showGameMenu(Character& character) {
                             character.addItem(item);
                             character.setGold(character.getGold() - price);
                             cout << "Item bought successfully!" << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                         }
                         else {
                             cout << "You don't have enough gold to buy this item." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                         }
                     }
                     else if (shopOption == 9){
@@ -497,9 +577,13 @@ void Menu::showGameMenu(Character& character) {
                     }
                     else {
                         cout << "Invalid option, please choose a valid one." << endl;
+                        cout << "Press any key to continue..." << endl;
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cin.get();
                     }
+                    break;
                 }
-                break;
+                
                 case Character::Thief:{
                     cout << "================" << endl;
                     cout << " Shop " << endl;
@@ -513,7 +597,7 @@ void Menu::showGameMenu(Character& character) {
                     cout << "6. Stealth Tunic - 800G" << endl;
                     cout << "7. Scimitar - 650G" << endl;
                     cout << "8. Bandit's Mask - 550G" << endl;
-                    cout << "11. Exit" << endl;
+                    cout << "9. Exit" << endl;
 
                     int shopOption;
                     cin >> shopOption;
@@ -560,9 +644,15 @@ void Menu::showGameMenu(Character& character) {
                             character.addItem(item);
                             character.setGold(character.getGold() - price);
                             cout << "Item bought successfully!" << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                         }
                         else {
                             cout << "You don't have enough gold to buy this item." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                         }
                     }
                     else if (shopOption == 9){
@@ -570,10 +660,15 @@ void Menu::showGameMenu(Character& character) {
                     }
                     else {
                         cout << "Invalid option, please choose a valid one." << endl;
+                        cout << "Press any key to continue..." << endl;
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cin.get();
                     }
+                    break;
+                }
+                
                 }
                 break;
-                }
             }
             case 3:{
                 int skillPoints = character.getSkillPoints();
@@ -597,17 +692,50 @@ void Menu::showGameMenu(Character& character) {
 
                             if (skillOption >= 1 && skillOption <= 3){
                                 switch (skillOption){
-                                    case 1:                                
+                                    case 1:
+                                    if (skillPoints >= 5){                              
                                         character.setSkillPoints(skillPoints - 5);
                                         cout << "Power Strike unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 2:
+                                    if (skillPoints >= 12){
                                         character.setSkillPoints(skillPoints - 12);
                                         cout << "Iron Defense unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 3:
+                                    if (skillPoints >= 25){
                                         character.setSkillPoints(skillPoints - 25);
                                         cout << "War Cry unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                 }
                             }
@@ -616,6 +744,9 @@ void Menu::showGameMenu(Character& character) {
                             }
                             else {
                                 cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
 
                             break;
@@ -633,12 +764,34 @@ void Menu::showGameMenu(Character& character) {
                             if (skillOption >= 1 && skillOption <= 3){
                                 switch (skillOption){
                                     case 1:
+                                    if (skillPoints >= 5){
                                         character.setSkillPoints(skillPoints - 5);
                                         cout << "Quick Shot unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 2:
+                                    if (skillPoints >= 18){
                                         character.setSkillPoints(skillPoints - 18);
                                         cout << "Eagle Eye unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 3:
                                         character.setSkillPoints(skillPoints - 27);
@@ -651,6 +804,9 @@ void Menu::showGameMenu(Character& character) {
                             }
                             else {
                                 cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
 
                             break;
@@ -668,16 +824,49 @@ void Menu::showGameMenu(Character& character) {
                             if (skillOption >= 1 && skillOption <= 3){
                                 switch (skillOption){
                                     case 1:
+                                    if (skillPoints >= 5){
                                         character.setSkillPoints(skillPoints - 5);
                                         cout << "Fireball unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 2: 
+                                    if (skillPoints >= 15){
                                         character.setSkillPoints(skillPoints - 15);
                                         cout << "Ice Beam unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 3:
+                                    if (skillPoints >= 24){
                                         character.setSkillPoints(skillPoints - 24);
                                         cout << "Radiant unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                 }
                             }
@@ -686,6 +875,9 @@ void Menu::showGameMenu(Character& character) {
                             }
                             else {
                                 cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                             break;
                         }
@@ -702,16 +894,49 @@ void Menu::showGameMenu(Character& character) {
                             if (skillOption >= 1 && skillOption <= 3){
                                 switch (skillOption){
                                     case 1:
+                                    if (skillPoints >= 5){
                                         character.setSkillPoints(skillPoints - 5);
                                         cout << "Backstab unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 2:
+                                    if (skillPoints >= 14){
                                         character.setSkillPoints(skillPoints - 14);
                                         cout << "Focus unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                     case 3:
+                                    if (skillPoints >= 25){
                                         character.setSkillPoints(skillPoints - 25);
                                         cout << "Lethal Stab unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
                                         break;
                                 }
                             }
@@ -720,11 +945,17 @@ void Menu::showGameMenu(Character& character) {
                             }
                             else {
                                 cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
                             }
                             break;
                         }
                         default:{
                             cout << "Invalid option, please choose a valid one." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
                             break;
 
                         }
@@ -733,9 +964,13 @@ void Menu::showGameMenu(Character& character) {
 
 
                     }
+                    
                 } 
                 else {
                     cout << "You don't have enough skill points to unlock a new skill." << endl;
+                    cout << "Press any key to continue..." << endl;
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin.get();
                 }
                 break;
             }
@@ -743,6 +978,9 @@ void Menu::showGameMenu(Character& character) {
             case 4:{
                 //goOnAdventure(character); 
                 cout << "Adventure not implemented yet" << endl;
+                cout << "Press any key to continue..." << endl;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.get();
                 break;
             }
             case 5: {
@@ -752,11 +990,17 @@ void Menu::showGameMenu(Character& character) {
                 break;
             }
             case 6:{
-                cout << "Adventure not implemented yet" << endl;
+                cout << "Exiting to main menu" << endl;
+                cout << "Press any key to continue..." << endl;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.get();
                 break;
             } 
             default:{
-                cout << "Invalid option, please choose a valid one." << endl;   
+                cout << "Invalid option, please choose a valid one." << endl; 
+                cout << "Press any key to continue..." << endl;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.get();  
                 break;
             }
 

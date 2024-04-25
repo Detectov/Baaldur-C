@@ -14,6 +14,8 @@ class Character
         enum Race {Human, Elf, Dwarf, Orc, Undead};
         enum Orientation {Good, Neutral, Evil};
         enum CharacterClass {Warrior, Archer, Mage, Thief};
+
+        Character();
         Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass);
 
         string getName() const;
@@ -42,6 +44,13 @@ class Character
         void setLevel(int level);
         void addItem(const string& item);
         const vector<string>& getItems() const;
+
+        static string raceToString(Race race);
+        static string orientationToString(Orientation orientation);
+        static string classToString(CharacterClass charClass);
+
+        friend istream& operator>>(istream& is, Character& character);
+        friend ostream& operator<<(ostream& os, const Character& character);
 
         
     

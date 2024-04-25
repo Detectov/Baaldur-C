@@ -3,18 +3,23 @@
 
 using namespace std;
 
-Character:: Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass) 
-    : name(name), gender (gender), race (race), orientation (orientation), charClass (charClass), gold (0), skillPoints (1), healthPoints (100), manaPoints (50), intellect (5), strength (5), agility (5), level (1) {
+Character::Character()
+    : name ("Kuzon"), gender(Male), race(Human), orientation (Good), charClass(Mage), initialWeapon("MageStaff"),
+        gold(10000), skillPoints(90), healthPoints(500), manaPoints(250),intellect(30), strength(10), agility(10), level(30) {}
+
+Character::Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass)
+    : name(name), gender(gender), race(race), orientation(orientation), charClass(charClass), gold(0),
+      skillPoints(1), healthPoints(100), manaPoints(50), intellect(5), strength(5), agility(5), level(1) {
 
     switch (charClass) {
         case Mage:
-            initialWeapon = "Mage Staff";
+            initialWeapon = "MageStaff";
             break;
         case Thief:
             initialWeapon = "Dagger";
             break;
         case Archer:
-            initialWeapon = "Apprentice Bow";
+            initialWeapon = "ApprenticeBow";
             break;
         case Warrior:
             initialWeapon = "Sword";
@@ -22,23 +27,24 @@ Character:: Character(string name, Gender gender, Race race, Orientation orienta
     }
 }
 
+
 string Character::getName() const {
     return name;
 }
 
-Character:: Gender Character::getGender() const {
+Character::Gender Character::getGender() const {
     return gender;
 }
 
-Character:: Race Character::getRace() const {
+Character::Race Character::getRace() const {
     return race;
 }
 
-Character:: Orientation Character::getOrientation() const {
+Character::Orientation Character::getOrientation() const {
     return orientation;
 }
 
-Character:: CharacterClass Character::getCharClass() const {
+Character::CharacterClass Character::getCharClass() const {
     return charClass;
 }
 
@@ -77,6 +83,7 @@ int Character::getAgility() const {
 int Character::getLevel() const {
     return level;
 }
+
 
 void Character::setInitialWeapon(string weapon) {
     initialWeapon = weapon;
@@ -121,5 +128,79 @@ void Character::addItem(const string& item) {
 const vector<string>& Character::getItems() const {
     return items;
 }
-    
+
+
+string Character::raceToString(Race race) {
+    switch (race) {
+        case Human: return "Human";
+        case Elf: return "Elf";
+        case Dwarf: return "Dwarf";
+        case Orc: return "Orc";
+        case Undead: return "Undead";
+        
+    }
+}
+
+string Character::orientationToString(Orientation orientation) {
+    switch (orientation) {
+        case Good: return "Good";
+        case Neutral: return "Neutral";
+        case Evil: return "Evil";
+        
+    }
+}
+
+string Character::classToString(CharacterClass charClass) {
+    switch (charClass) {
+        case Warrior: return "Warrior";
+        case Archer: return "Archer";
+        case Mage: return "Mage";
+        case Thief: return "Thief";
+        
+    }
+}
+
+istream& operator>>(istream& is, Character& character) {
+    int gender, race, orientation, charClass;
+    is >> character.name
+       >> gender
+       >> race
+       >> orientation
+       >> charClass
+       >> character.initialWeapon
+       >> character.gold
+       >> character.skillPoints
+       >> character.healthPoints
+       >> character.manaPoints
+       >> character.intellect
+       >> character.strength
+       >> character.agility
+       >> character.level;
+
+    character.gender = static_cast<Character::Gender>(gender);
+    character.race = static_cast<Character::Race>(race);
+    character.orientation = static_cast<Character::Orientation>(orientation);
+    character.charClass = static_cast<Character::CharacterClass>(charClass);
+
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Character& character) {
+    os << character.name << " "
+       << static_cast<int>(character.gender) << " "
+       << static_cast<int>(character.race) << " "
+       << static_cast<int>(character.orientation) << " "
+       << static_cast<int>(character.charClass) << " "
+       << character.initialWeapon << " "
+       << character.gold << " "
+       << character.skillPoints << " "
+       << character.healthPoints << " "
+       << character.manaPoints << " "
+       << character.intellect << " "
+       << character.strength << " "
+       << character.agility << " "
+       << character.level << endl;
+    return os;
+}
+
 
