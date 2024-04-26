@@ -19,6 +19,9 @@ class Character
         Character();
         Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass);
 
+        int experience;
+        int nextLevelExp;
+
         string getName() const;
         Gender getGender() const;
         Race getRace() const;
@@ -33,6 +36,7 @@ class Character
         int getStrength() const;
         int getAgility() const;
         int getLevel() const;
+        
 
         void setInitialWeapon(string weapon);
         void setGold(int gold);
@@ -50,6 +54,8 @@ class Character
         void useItem(const string& item);
         void useSkill(const string& skill);
         void levelUp();
+        void gainExperience(int exp);
+        bool checkLevelUp();
         void displayActions() const;
         void performAction(int action, Enemy& enemy);
         
@@ -80,6 +86,8 @@ class Character
         int strength;
         int agility;
         vector<string> items;
+
+        static const int experienceThresholds[30];
 
     
 };

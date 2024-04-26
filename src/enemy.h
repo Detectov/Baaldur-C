@@ -25,7 +25,7 @@ class Enemy{
         string name;
         int level;
         int healthPoints;
-        int attack;
+        int dmg;
         static vector<string> names;
         static string getRandomName();
 

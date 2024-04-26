@@ -3,13 +3,12 @@
 
 using namespace std;
 
-vector<string> Enemy::names = {"Goblin, Harpy, Hobgoblin, Dreg, Vandal, Minotaur, Hydra, Thrall, Acolyte, Witch, Centurion "};
+vector<string> Enemy::names = {"Goblin", "Harpy", "Hobgoblin", "Dreg", "Vandal", "Minotaur", "Hydra", "Thrall", "Acolyte", "Witch", "Centurion"};
 
 Enemy::Enemy(int level, int healthPoints, int attack)
-    : level(level), healthPoints(healthPoints), attack(attack), name(getRandomName()) {}
+    : level(level), healthPoints(healthPoints), dmg(attack), name(getRandomName()) {}
 
     string Enemy::getRandomName(){
-        srand(time(NULL));
         int index = rand() % names.size();  
         return names[index];
     }
@@ -22,6 +21,10 @@ Enemy::Enemy(int level, int healthPoints, int attack)
         return level;
     }
 
+    int Enemy::getAttack() const {
+        return dmg;
+    }
+
     void Enemy::attack() const {
-        cout << name << " attacks you for " << attack << " damage!" << endl;
+        cout << name << " attacks for " << dmg << " damage!" << endl;
     }

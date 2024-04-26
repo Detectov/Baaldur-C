@@ -7,13 +7,14 @@ Adventure::Adventure(Difficulty difficulty) : difficulty(difficulty) {
 }
 
 void Adventure::startAdventure(Character& character) {
+    displayAdventureDetails();
     resetCharacterStats(character); 
     int enemiesCount = calculateEnemiesCount();
     int enemyLevel = calculateEnemyLevel(character);
     cout << "You are about to face " << enemiesCount << " enemies!" << endl;
 
     for (int i = 0; i < enemiesCount; i++) {
-        Enemy enemy(enemyLevel, 100, 10);
+        Enemy enemy(enemyLevel, 100 * enemyLevel, 10 * enemyLevel);
         enemies.push_back(enemy);
     }
 

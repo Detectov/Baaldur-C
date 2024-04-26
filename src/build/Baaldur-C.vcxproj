@@ -316,6 +316,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\main.cpp" />
     <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\menu.cpp" />
     <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\Character.cpp" />
+    <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\adventure.cpp" />
+    <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\danny\Documents\BaaldurC\src\build\ZERO_CHECK.vcxproj">

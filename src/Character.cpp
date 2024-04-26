@@ -3,6 +3,8 @@
 
 using namespace std;
 
+const int Character::experienceThresholds[30] = {0,7, 23, 47, 110, 220, 450, 800, 1300, 2000, 2900, 400, 5500, 7500, 10000, 13000, 17000, 21000, 25000, 29000, 33000, 37000, 41000, 45000, 49000, 53000, 57000, 61000, 65000, 70000};
+
 Character::Character()
     : name ("Kuzon"), gender(Male), race(Human), orientation (Good), charClass(Mage), initialWeapon("MageStaff"),
         gold(10000), skillPoints(90), healthPoints(500), manaPoints(250),intellect(30), strength(10), agility(10), level(30) {}
@@ -127,6 +129,37 @@ void Character::addItem(const string& item) {
 
 const vector<string>& Character::getItems() const {
     return items;
+}
+
+void Character::gainExperience(int exp) {
+    experience += exp;
+    if (checkLevelUp()) {
+        levelUp();
+    }
+}
+
+bool Character::checkLevelUp(){
+    if (level >= 30){
+        return false;
+    }
+    return experience >= experienceThresholds[level];
+}
+
+void Character::levelUp(){
+    if (level >= 30){
+        return;
+    }
+    level++;
+    experience -= experienceThresholds[level - 1];
+    skillPoints += 5;
+
+    healthPoints += 10;
+    manaPoints += 5;
+    intellect += 2;
+    strength += 2;
+    agility += 2;
+
+    cout << "You have leveled up! You are now level " << level << "!" << endl;
 }
 
 void Character::attack(Enemy& enemy) const {
