@@ -1,5 +1,6 @@
 #include <filesystem>
 #include "menu.h"
+#include "adventure.h"
 
 
 
@@ -11,6 +12,310 @@ Menu::Menu() {
 }
 
 Menu::~Menu() {
+}
+
+void Menu :: manageSkills(Character& character){
+    int skillPoints = character.getSkillPoints();
+                if (skillPoints >= 5){
+                    cout << "================" << endl;
+                    cout << "  Skill Tree" << endl;
+                    cout << "================" << endl;
+                    cout << "Total Skill Points: " << skillPoints << endl;
+                    cout << "Choose a skill to unlock:" << endl;
+                    switch(character.getCharClass()){
+                        case Character::Warrior:{
+                            cout << "1. Power Strike - 5 Points" << endl;
+                            cout << "2. Iron Defense - 12 Points" << endl;
+                            cout << "3. War Cry - 2S Points" << endl;
+                            cout << "4. Exit" << endl;
+
+                            int skillOption;
+                            cin.ignore();
+                            cin >> skillOption;
+
+
+                            if (skillOption >= 1 && skillOption <= 3){
+                                switch (skillOption){
+                                    case 1:
+                                    if (skillPoints >= 5){                              
+                                        character.setSkillPoints(skillPoints - 5);
+                                        cout << "Power Strike unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 2:
+                                    if (skillPoints >= 12){
+                                        character.setSkillPoints(skillPoints - 12);
+                                        cout << "Iron Defense unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 3:
+                                    if (skillPoints >= 25){
+                                        character.setSkillPoints(skillPoints - 25);
+                                        cout << "War Cry unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                }
+                            }
+                            else if (skillOption == 4){
+                                break;
+                            }
+                            else {
+                                cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
+                            }
+
+                            break;
+                        }
+                        case Character::Archer:{
+                            cout << "1. Quick Shot - 5 Points" << endl;
+                            cout << "2. Eagle Eye - 18 Points" << endl;
+                            cout << "3. Arrow Burst - 27 Points" << endl;
+                            cout << "4. Exit" << endl;
+
+                            int skillOption;
+                            cin.ignore();
+                            cin >> skillOption;
+
+                            if (skillOption >= 1 && skillOption <= 3){
+                                switch (skillOption){
+                                    case 1:
+                                    if (skillPoints >= 5){
+                                        character.setSkillPoints(skillPoints - 5);
+                                        cout << "Quick Shot unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 2:
+                                    if (skillPoints >= 18){
+                                        character.setSkillPoints(skillPoints - 18);
+                                        cout << "Eagle Eye unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 3:
+                                        character.setSkillPoints(skillPoints - 27);
+                                        cout << "Arrow Burst unlocked!" << endl;
+                                        break;
+                                }
+                            }
+                            else if (skillOption == 4){
+                                break;
+                            }
+                            else {
+                                cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
+                            }
+
+                            break;
+                        }
+                        case Character::Mage:{
+                            cout << "1. Fireball - 5 Points" << endl;
+                            cout << "2. Ice Beam - 15 Points" << endl;
+                            cout << "3. Radiant - 24 Points" << endl;
+                            cout << "4. Exit" << endl;
+
+                            int skillOption;
+                            cin.ignore();
+                            cin >> skillOption;
+
+                            if (skillOption >= 1 && skillOption <= 3){
+                                switch (skillOption){
+                                    case 1:
+                                    if (skillPoints >= 5){
+                                        character.setSkillPoints(skillPoints - 5);
+                                        cout << "Fireball unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 2: 
+                                    if (skillPoints >= 15){
+                                        character.setSkillPoints(skillPoints - 15);
+                                        cout << "Ice Beam unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 3:
+                                    if (skillPoints >= 24){
+                                        character.setSkillPoints(skillPoints - 24);
+                                        cout << "Radiant unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                }
+                            }
+                            else if (skillOption == 4){
+                                break;
+                            }
+                            else {
+                                cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
+                            }
+                            break;
+                        }
+                        case Character::Thief:{
+                            cout << "1. Backstab - 5 Points" << endl;
+                            cout << "2. Focus - 14 Points" << endl;
+                            cout << "3. Lethal Stab - 25 Points" << endl;
+                            cout << "4. Exit" << endl;
+
+                            int skillOption;
+                            cin.ignore();
+                            cin >> skillOption;
+
+                            if (skillOption >= 1 && skillOption <= 3){
+                                switch (skillOption){
+                                    case 1:
+                                    if (skillPoints >= 5){
+                                        character.setSkillPoints(skillPoints - 5);
+                                        cout << "Backstab unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 2:
+                                    if (skillPoints >= 14){
+                                        character.setSkillPoints(skillPoints - 14);
+                                        cout << "Focus unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                    case 3:
+                                    if (skillPoints >= 25){
+                                        character.setSkillPoints(skillPoints - 25);
+                                        cout << "Lethal Stab unlocked!" << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                    else {
+                                        cout << "You don't have enough skill points to unlock this skill." << endl;
+                                        cout << "Press any key to continue..." << endl;
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.get();
+                                    }
+                                        break;
+                                }
+                            }
+                            else if (skillOption == 4){
+                                break;
+                            }
+                            else {
+                                cout << "Invalid option, please choose a valid one." << endl;
+                                cout << "Press any key to continue..." << endl;
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cin.get();
+                            }
+                            break;
+                        }
+                        default:{
+                            cout << "Invalid option, please choose a valid one." << endl;
+                            cout << "Press any key to continue..." << endl;
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.get();
+                            break;
+
+                        }
+                        
+
+
+
+                    }
+                    
+                } 
+                else {
+                    cout << "You don't have enough skill points to unlock a new skill." << endl;
+                    cout << "Press any key to continue..." << endl;
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin.get();
+                }
 }
 
 void Menu :: charInfo(const Character &character){
@@ -711,313 +1016,11 @@ void Menu::showGameMenu(Character& character) {
                 break;
             }
             case 3:{
-                int skillPoints = character.getSkillPoints();
-                if (skillPoints >= 5){
-                    cout << "================" << endl;
-                    cout << "  Skill Tree" << endl;
-                    cout << "================" << endl;
-                    cout << "Total Skill Points: " << skillPoints << endl;
-
-                    switch(character.getCharClass()){
-                        case Character::Warrior:{
-                            cout << "1. Power Strike - 5 Points" << endl;
-                            cout << "2. Iron Defense - 12 Points" << endl;
-                            cout << "3. War Cry - 2S Points" << endl;
-                            cout << "4. Exit" << endl;
-
-                            int skillOption;
-                            cin.ignore();
-                            cin >> skillOption;
-
-
-                            if (skillOption >= 1 && skillOption <= 3){
-                                switch (skillOption){
-                                    case 1:
-                                    if (skillPoints >= 5){                              
-                                        character.setSkillPoints(skillPoints - 5);
-                                        cout << "Power Strike unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 2:
-                                    if (skillPoints >= 12){
-                                        character.setSkillPoints(skillPoints - 12);
-                                        cout << "Iron Defense unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 3:
-                                    if (skillPoints >= 25){
-                                        character.setSkillPoints(skillPoints - 25);
-                                        cout << "War Cry unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                }
-                            }
-                            else if (skillOption == 4){
-                                break;
-                            }
-                            else {
-                                cout << "Invalid option, please choose a valid one." << endl;
-                                cout << "Press any key to continue..." << endl;
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                cin.get();
-                            }
-
-                            break;
-                        }
-                        case Character::Archer:{
-                            cout << "1. Quick Shot - 5 Points" << endl;
-                            cout << "2. Eagle Eye - 18 Points" << endl;
-                            cout << "3. Arrow Burst - 27 Points" << endl;
-                            cout << "4. Exit" << endl;
-
-                            int skillOption;
-                            cin.ignore();
-                            cin >> skillOption;
-
-                            if (skillOption >= 1 && skillOption <= 3){
-                                switch (skillOption){
-                                    case 1:
-                                    if (skillPoints >= 5){
-                                        character.setSkillPoints(skillPoints - 5);
-                                        cout << "Quick Shot unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 2:
-                                    if (skillPoints >= 18){
-                                        character.setSkillPoints(skillPoints - 18);
-                                        cout << "Eagle Eye unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 3:
-                                        character.setSkillPoints(skillPoints - 27);
-                                        cout << "Arrow Burst unlocked!" << endl;
-                                        break;
-                                }
-                            }
-                            else if (skillOption == 4){
-                                break;
-                            }
-                            else {
-                                cout << "Invalid option, please choose a valid one." << endl;
-                                cout << "Press any key to continue..." << endl;
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                cin.get();
-                            }
-
-                            break;
-                        }
-                        case Character::Mage:{
-                            cout << "1. Fireball - 5 Points" << endl;
-                            cout << "2. Ice Beam - 15 Points" << endl;
-                            cout << "3. Radiant - 24 Points" << endl;
-                            cout << "4. Exit" << endl;
-
-                            int skillOption;
-                            cin.ignore();
-                            cin >> skillOption;
-
-                            if (skillOption >= 1 && skillOption <= 3){
-                                switch (skillOption){
-                                    case 1:
-                                    if (skillPoints >= 5){
-                                        character.setSkillPoints(skillPoints - 5);
-                                        cout << "Fireball unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 2: 
-                                    if (skillPoints >= 15){
-                                        character.setSkillPoints(skillPoints - 15);
-                                        cout << "Ice Beam unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 3:
-                                    if (skillPoints >= 24){
-                                        character.setSkillPoints(skillPoints - 24);
-                                        cout << "Radiant unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                }
-                            }
-                            else if (skillOption == 4){
-                                break;
-                            }
-                            else {
-                                cout << "Invalid option, please choose a valid one." << endl;
-                                cout << "Press any key to continue..." << endl;
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                cin.get();
-                            }
-                            break;
-                        }
-                        case Character::Thief:{
-                            cout << "1. Backstab - 5 Points" << endl;
-                            cout << "2. Focus - 14 Points" << endl;
-                            cout << "3. Lethal Stab - 25 Points" << endl;
-                            cout << "4. Exit" << endl;
-
-                            int skillOption;
-                            cin.ignore();
-                            cin >> skillOption;
-
-                            if (skillOption >= 1 && skillOption <= 3){
-                                switch (skillOption){
-                                    case 1:
-                                    if (skillPoints >= 5){
-                                        character.setSkillPoints(skillPoints - 5);
-                                        cout << "Backstab unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 2:
-                                    if (skillPoints >= 14){
-                                        character.setSkillPoints(skillPoints - 14);
-                                        cout << "Focus unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                    case 3:
-                                    if (skillPoints >= 25){
-                                        character.setSkillPoints(skillPoints - 25);
-                                        cout << "Lethal Stab unlocked!" << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                    else {
-                                        cout << "You don't have enough skill points to unlock this skill." << endl;
-                                        cout << "Press any key to continue..." << endl;
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.get();
-                                    }
-                                        break;
-                                }
-                            }
-                            else if (skillOption == 4){
-                                break;
-                            }
-                            else {
-                                cout << "Invalid option, please choose a valid one." << endl;
-                                cout << "Press any key to continue..." << endl;
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                cin.get();
-                            }
-                            break;
-                        }
-                        default:{
-                            cout << "Invalid option, please choose a valid one." << endl;
-                            cout << "Press any key to continue..." << endl;
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cin.get();
-                            break;
-
-                        }
-                        
-
-
-
-                    }
-                    
-                } 
-                else {
-                    cout << "You don't have enough skill points to unlock a new skill." << endl;
-                    cout << "Press any key to continue..." << endl;
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cin.get();
-                }
                 break;
             }
-            
             case 4:{
-                //goOnAdventure(character); 
-                cout << "Adventure not implemented yet" << endl;
+                Adventure adventure; 
+                adventure.startAdventure(character);
                 cout << "Press any key to continue..." << endl;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cin.get();

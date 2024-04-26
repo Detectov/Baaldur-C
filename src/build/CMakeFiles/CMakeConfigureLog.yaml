@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.8.5+b5265ef37 for .NET Framework
-      Build started 25/04/2024 22:18:02.
+      Build started 26/04/2024 15:06:57.
       
       Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\3.29.2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.94
+      Time Elapsed 00:00:01.25
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -79,7 +79,7 @@ events:
       The output was:
       0
       MSBuild version 17.8.5+b5265ef37 for .NET Framework
-      Build started 25/04/2024 22:18:03.
+      Build started 26/04/2024 15:06:58.
       
       Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\3.29.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -108,7 +108,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.68
+      Time Elapsed 00:00:00.89
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-yzdevz"
-      binary: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-yzdevz"
+      source: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-hraq47"
+      binary: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-hraq47"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -137,40 +137,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-yzdevz'
+        Change Dir: 'C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-hraq47'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fa2de.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_0f01b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.8.5+b5265ef37 for .NET Framework
-        Build started 25/04/2024 22:18:04.
+        Build started 26/04/2024 15:07:00.
         
-        Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzdevz\\cmTC_fa2de.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hraq47\\cmTC_0f01b.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_fa2de.dir\\Debug\\".
+          Creating directory "cmTC_0f01b.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzdevz\\Debug\\".
-          Creating directory "cmTC_fa2de.dir\\Debug\\cmTC_fa2de.tlog\\".
+          Creating directory "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hraq47\\Debug\\".
+          Creating directory "cmTC_0f01b.dir\\Debug\\cmTC_0f01b.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_fa2de.dir\\Debug\\cmTC_fa2de.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_fa2de.dir\\Debug\\cmTC_fa2de.tlog\\unsuccessfulbuild".
+          Creating "cmTC_0f01b.dir\\Debug\\cmTC_0f01b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_0f01b.dir\\Debug\\cmTC_0f01b.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fa2de.dir\\Debug\\\\" /Fd"cmTC_fa2de.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f01b.dir\\Debug\\\\" /Fd"cmTC_0f01b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33134 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fa2de.dir\\Debug\\\\" /Fd"cmTC_fa2de.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f01b.dir\\Debug\\\\" /Fd"cmTC_0f01b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzdevz\\Debug\\cmTC_fa2de.exe" /INCREMENTAL /ILK:"cmTC_fa2de.dir\\Debug\\cmTC_fa2de.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-yzdevz/Debug/cmTC_fa2de.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-yzdevz/Debug/cmTC_fa2de.lib" /MACHINE:X64  /machine:x64 cmTC_fa2de.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_fa2de.vcxproj -> C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzdevz\\Debug\\cmTC_fa2de.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hraq47\\Debug\\cmTC_0f01b.exe" /INCREMENTAL /ILK:"cmTC_0f01b.dir\\Debug\\cmTC_0f01b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-hraq47/Debug/cmTC_0f01b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-hraq47/Debug/cmTC_0f01b.lib" /MACHINE:X64  /machine:x64 cmTC_0f01b.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_0f01b.vcxproj -> C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hraq47\\Debug\\cmTC_0f01b.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_fa2de.dir\\Debug\\cmTC_fa2de.tlog\\unsuccessfulbuild".
-          Touching "cmTC_fa2de.dir\\Debug\\cmTC_fa2de.tlog\\cmTC_fa2de.lastbuildstate".
-        Done Building Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yzdevz\\cmTC_fa2de.vcxproj" (default targets).
+          Deleting file "cmTC_0f01b.dir\\Debug\\cmTC_0f01b.tlog\\unsuccessfulbuild".
+          Touching "cmTC_0f01b.dir\\Debug\\cmTC_0f01b.tlog\\cmTC_0f01b.lastbuildstate".
+        Done Building Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hraq47\\cmTC_0f01b.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.65
+        Time Elapsed 00:00:00.81
         
       exitCode: 0
   -
@@ -210,8 +210,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-waqpzo"
-      binary: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-waqpzo"
+      source: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-u0j9sy"
+      binary: "C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-u0j9sy"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -220,40 +220,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-waqpzo'
+        Change Dir: 'C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-u0j9sy'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a333a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6a33b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.8.5+b5265ef37 for .NET Framework
-        Build started 25/04/2024 22:18:05.
+        Build started 26/04/2024 15:07:01.
         
-        Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-waqpzo\\cmTC_a333a.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u0j9sy\\cmTC_6a33b.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_a333a.dir\\Debug\\".
+          Creating directory "cmTC_6a33b.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-waqpzo\\Debug\\".
-          Creating directory "cmTC_a333a.dir\\Debug\\cmTC_a333a.tlog\\".
+          Creating directory "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u0j9sy\\Debug\\".
+          Creating directory "cmTC_6a33b.dir\\Debug\\cmTC_6a33b.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_a333a.dir\\Debug\\cmTC_a333a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_a333a.dir\\Debug\\cmTC_a333a.tlog\\unsuccessfulbuild".
+          Creating "cmTC_6a33b.dir\\Debug\\cmTC_6a33b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_6a33b.dir\\Debug\\cmTC_6a33b.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a333a.dir\\Debug\\\\" /Fd"cmTC_a333a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6a33b.dir\\Debug\\\\" /Fd"cmTC_6a33b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33134 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a333a.dir\\Debug\\\\" /Fd"cmTC_a333a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6a33b.dir\\Debug\\\\" /Fd"cmTC_6a33b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-waqpzo\\Debug\\cmTC_a333a.exe" /INCREMENTAL /ILK:"cmTC_a333a.dir\\Debug\\cmTC_a333a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-waqpzo/Debug/cmTC_a333a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-waqpzo/Debug/cmTC_a333a.lib" /MACHINE:X64  /machine:x64 cmTC_a333a.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_a333a.vcxproj -> C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-waqpzo\\Debug\\cmTC_a333a.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u0j9sy\\Debug\\cmTC_6a33b.exe" /INCREMENTAL /ILK:"cmTC_6a33b.dir\\Debug\\cmTC_6a33b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-u0j9sy/Debug/cmTC_6a33b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/danny/Documents/BaaldurC/src/build/CMakeFiles/CMakeScratch/TryCompile-u0j9sy/Debug/cmTC_6a33b.lib" /MACHINE:X64  /machine:x64 cmTC_6a33b.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_6a33b.vcxproj -> C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u0j9sy\\Debug\\cmTC_6a33b.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_a333a.dir\\Debug\\cmTC_a333a.tlog\\unsuccessfulbuild".
-          Touching "cmTC_a333a.dir\\Debug\\cmTC_a333a.tlog\\cmTC_a333a.lastbuildstate".
-        Done Building Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-waqpzo\\cmTC_a333a.vcxproj" (default targets).
+          Deleting file "cmTC_6a33b.dir\\Debug\\cmTC_6a33b.tlog\\unsuccessfulbuild".
+          Touching "cmTC_6a33b.dir\\Debug\\cmTC_6a33b.tlog\\cmTC_6a33b.lastbuildstate".
+        Done Building Project "C:\\Users\\danny\\Documents\\BaaldurC\\src\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u0j9sy\\cmTC_6a33b.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.70
+        Time Elapsed 00:00:00.82
         
       exitCode: 0
   -

@@ -6,7 +6,7 @@ using namespace std;
 vector<string> Enemy::names = {"Goblin", "Harpy", "Hobgoblin", "Dreg", "Vandal", "Minotaur", "Hydra", "Thrall", "Acolyte", "Witch", "Centurion"};
 
 Enemy::Enemy(int level, int healthPoints, int attack)
-    : level(level), healthPoints(healthPoints), dmg(attack), name(getRandomName()) {}
+    : level(level), healthPoints(75), dmg(attack), name(getRandomName()) {}
 
     string Enemy::getRandomName(){
         int index = rand() % names.size();  
@@ -21,10 +21,21 @@ Enemy::Enemy(int level, int healthPoints, int attack)
         return level;
     }
 
+    int Enemy::getHealthPoints() const {
+        return healthPoints;
+    }
+
     int Enemy::getAttack() const {
+        int dmg = rand() % 10 + 1;
         return dmg;
     }
 
     void Enemy::attack() const {
-        cout << name << " attacks for " << dmg << " damage!" << endl;
+        int damage = getAttack();
+        cout << name << " attacks, and deals " << damage << " damage!" << endl;
     }
+
+    void Enemy::setHealthPoints(int healthPoints){
+        this->healthPoints = healthPoints;
+    }
+    

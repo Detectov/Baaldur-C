@@ -23,6 +23,7 @@ public:
     void gameMenu();
     void showGameMenu(Character& character);
     void charInfo(const Character& character);
+    void manageSkills(Character& character);
 };
 
 #endif

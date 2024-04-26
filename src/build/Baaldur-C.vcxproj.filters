@@ -16,6 +16,9 @@
     <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\danny\Documents\BaaldurC\src\boss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\danny\Documents\BaaldurC\src\CMakeLists.txt" />

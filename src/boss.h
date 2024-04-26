@@ -1,5 +1,5 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef BOSS_H
+#define BOSS_H
 
 #include <iostream>
 #include <string>
@@ -9,9 +9,9 @@
 
 using namespace std;
 
-class Enemy{
+class Boss{
     public:
-        Enemy(int level, int healthPoints, int attack);
+        Boss(int level, int healthPoints, int attack);
 
         string getName() const;
         int getLevel() const;
@@ -30,5 +30,7 @@ class Enemy{
         static string getRandomName();
 
 };
+
+
 
 #endif
