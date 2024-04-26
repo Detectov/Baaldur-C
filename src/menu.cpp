@@ -348,7 +348,9 @@ void Menu::showGameMenu(Character& character) {
                         cout << "6. War Boots - 650G" << endl;
                         cout << "7. Warrior's Crown - 700G" << endl;
                         cout << "8. Gladiators Sword - 850G" << endl;
-                        cout << "9. Exit" << endl;
+                        cout << "9. Herbs - 25G" << endl;
+                        cout << "10. Elixir - 35G" << endl;
+                        cout << "11. Exit" << endl;
 
                         int shopOption;
                         cin >> shopOption;
@@ -389,6 +391,14 @@ void Menu::showGameMenu(Character& character) {
                                     price = 850;
                                     item = "Gladiators Sword";
                                     break;
+                                case 9:
+                                    price = 25;
+                                    item = "Herbs";
+                                    break;
+                                case 10:
+                                    price =35;
+                                    item = "Elixir";
+                                    break;
                             }
 
                             if (character.getGold() >= price){
@@ -406,7 +416,7 @@ void Menu::showGameMenu(Character& character) {
                                 cin.get();
                             }
                         }
-                        else if (shopOption == 9){
+                        else if (shopOption == 11){
                             break;
                         }
                         else {
@@ -431,7 +441,9 @@ void Menu::showGameMenu(Character& character) {
                         cout << "6. Reinforced Gloves - 550G" << endl;
                         cout << "7. Power Bandana - 650G" << endl;
                         cout << "8. Precision Crossbow - 800G" << endl;
-                        cout << "9. Exit" << endl;
+                        cout << "9. Herbs - 25G" << endl;
+                        cout << "10. Elixir - 35G" << endl;
+                        cout << "11. Exit" << endl;
 
                         int shopOption;
                         cin >> shopOption;
@@ -442,35 +454,43 @@ void Menu::showGameMenu(Character& character) {
                             switch (shopOption){
                                 case 1:
                                     price = 500;
-                                    item = "Long Bow";
+                                    item = "LongBow";
                                     break;
                                 case 2:
                                     price = 550;
-                                    item = "Hawk Eye Hood";
+                                    item = "HawkEyeHood";
                                     break;
                                 case 3:
                                     price = 600;
-                                    item = "Leather Armor";
+                                    item = "LeatherArmor";
                                     break;
                                 case 4:
                                     price = 450;
-                                    item = "Silent Boots";
+                                    item = "SilentBoots";
                                     break;
                                 case 5:
                                     price = 750;
-                                    item = "Forest Hood";
+                                    item = "ForestHood";
                                     break;
                                 case 6:
                                     price = 550;
-                                    item = "Reinforced Gloves";
+                                    item = "ReinforcedGloves";
                                     break;
                                 case 7:
                                     price = 650;
-                                    item = "Power Bandana";
+                                    item = "PowerBandana";
                                     break;
                                 case 8:
                                     price = 800;
-                                    item = "Precision Crossbow";
+                                    item = "PrecisionCrossbow";
+                                    break;
+                                case 9:
+                                    price = 25;
+                                    item = "Herbs";
+                                    break;
+                                case 10:
+                                    price =35;
+                                    item = "Elixir";
                                     break;
                             }
 
@@ -489,7 +509,7 @@ void Menu::showGameMenu(Character& character) {
                                 cin.get();
                             }
                         }
-                        else if (shopOption == 9){
+                        else if (shopOption == 11){
                             break;
                         }
                         else {
@@ -514,7 +534,9 @@ void Menu::showGameMenu(Character& character) {
                     cout << "6. Magic Amulet - 750G" << endl;
                     cout << "7. Arcane Staff - 650G" << endl;
                     cout << "8. Master's Tiara - 900G" << endl;
-                    cout << "9. Exit" << endl;
+                    cout << "9. Herbs - 25G" << endl;
+                    cout << "10. Elixir - 35G" << endl;
+                    cout << "11. Exit" << endl;
 
                     int shopOption;
                     cin >> shopOption;
@@ -525,35 +547,43 @@ void Menu::showGameMenu(Character& character) {
                         switch (shopOption){
                             case 1:
                                 price = 500;
-                                item = "Mystic Tunic";
+                                item = "MysticTunic";
                                 break;
                             case 2:
                                 price = 600;
-                                item = "Mage's Ring";
+                                item = "Mage'sRing";
                                 break;
                             case 3:
                                 price = 550;
-                                item = "Enchanted Hat";
+                                item = "EnchantedHat";
                                 break;
                             case 4:
                                 price = 450;
-                                item = "Magic Boots";
+                                item = "MagicBoots";
                                 break;
                             case 5:
                                 price = 800;
-                                item = "Sage's Cape";
+                                item = "Sage'sCape";
                                 break;
                             case 6:
                                 price = 750;
-                                item = "Magic Amulet";
+                                item = "MagicAmulet";
                                 break;
                             case 7:
                                 price = 650;
-                                item = "Magic Bandana";
+                                item = "MagicBandana";
                                 break;
                             case 8:
                                 price = 900;
-                                item = "Magic Wand";
+                                item = "MagicWand";
+                                break;
+                            case 9:
+                                price = 25;
+                                item = "Herbs";
+                                break;
+                            case 10:
+                                price =35;
+                                item = "Elixir";
                                 break;
                         }
 
@@ -572,7 +602,7 @@ void Menu::showGameMenu(Character& character) {
                             cin.get();
                         }
                     }
-                    else if (shopOption == 9){
+                    else if (shopOption == 11){
                         break;
                     }
                     else {
@@ -597,7 +627,9 @@ void Menu::showGameMenu(Character& character) {
                     cout << "6. Stealth Tunic - 800G" << endl;
                     cout << "7. Scimitar - 650G" << endl;
                     cout << "8. Bandit's Mask - 550G" << endl;
-                    cout << "9. Exit" << endl;
+                    cout << "9. Herbs - 25G" << endl;
+                    cout << "10. Elixir - 35G" << endl;
+                    cout << "11. Exit" << endl;
 
                     int shopOption;
                     cin >> shopOption;
@@ -608,27 +640,27 @@ void Menu::showGameMenu(Character& character) {
                         switch (shopOption){
                             case 1:
                                 price = 500;
-                                item = "Twin Daggers";
+                                item = "TwinDaggers";
                                 break;
                             case 2:
                                 price = 600;
-                                item = "Dark Cape";
+                                item = "DarkCape";
                                 break;
                             case 3:
                                 price = 550;
-                                item = "Climbing Hook";
+                                item = "ClimbingHook";
                                 break;
                             case 4:
                                 price = 450;
-                                item = "Thief Boots";
+                                item = "ThiefBoots";
                                 break;
                             case 5:
                                 price = 750;
-                                item = "Boss' Boots";
+                                item = "Boss'Boots";
                                 break;
                             case 6:
                                 price = 800;
-                                item = "Stealth Tunic";
+                                item = "StealthTunic";
                                 break;
                             case 7:
                                 price = 650;
@@ -636,7 +668,15 @@ void Menu::showGameMenu(Character& character) {
                                 break;
                             case 8:
                                 price = 550;
-                                item = "Bandit's Mask";
+                                item = "Bandit'sMask";
+                                break;
+                            case 9:
+                                price = 25;
+                                item = "Herbs";
+                                break;
+                            case 10:
+                                price =35;
+                                item = "Elixir";
                                 break;
                         }
 
@@ -655,7 +695,7 @@ void Menu::showGameMenu(Character& character) {
                             cin.get();
                         }
                     }
-                    else if (shopOption == 9){
+                    else if (shopOption == 11){
                         break;
                     }
                     else {

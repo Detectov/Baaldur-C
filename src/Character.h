@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include "enemy.h"
 
 using namespace std;
 
@@ -44,6 +45,14 @@ class Character
         void setLevel(int level);
         void addItem(const string& item);
         const vector<string>& getItems() const;
+
+        void attack(Enemy& enemy) const;
+        void useItem(const string& item);
+        void useSkill(const string& skill);
+        void levelUp();
+        void displayActions() const;
+        void performAction(int action, Enemy& enemy);
+        
 
         static string raceToString(Race race);
         static string orientationToString(Orientation orientation);

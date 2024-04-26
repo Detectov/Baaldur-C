@@ -7,6 +7,7 @@
 #include <sstream>
 #include <map>
 #include "Character.h"
+#include "adventure.h"
 
 class Menu {
 public:

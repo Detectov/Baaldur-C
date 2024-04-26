@@ -129,6 +129,30 @@ const vector<string>& Character::getItems() const {
     return items;
 }
 
+void Character::attack(Enemy& enemy) const {
+    cout << name << " attacks " << enemy.getName() << " for " << strength << " damage!" << endl;
+    enemy.setHealthPoints(enemy.getHealthPoints() - strength);
+}
+
+void Character::useItem(const string& item){
+    if (item == "Herbs"){
+        int restore = 25;
+        this -> healthPoints += restore;
+    } else if (item == "Elixir"){
+        int restore = 50;
+        this -> healthPoints += restore;
+    }
+}
+
+void Character:: useSkill(const string& skill){}
+
+void Character :: displayActions() const {
+    cout << "1. Attack" << endl;
+    cout << "2. Use Item" << endl;
+    cout << "3. Use Skill" << endl;
+}
+
+void Character::performAction(int action, Enemy& enemy) {}
 
 string Character::raceToString(Race race) {
     switch (race) {
