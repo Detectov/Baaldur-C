@@ -11,16 +11,20 @@ using namespace std;
 class Character
 {
     public:
+        // Enums
         enum Gender {Male, Female};
         enum Race {Human, Elf, Dwarf, Orc, Undead};
         enum Orientation {Good, Neutral, Evil};
         enum CharacterClass {Warrior, Archer, Mage, Thief};
 
+        // Constructors
         Character();
         Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass);
 
         int experience;
         int nextLevelExp;
+
+        // Getters and setters
 
         string getName() const;
         Gender getGender() const;
@@ -58,6 +62,7 @@ class Character
         bool checkLevelUp();
         void displayActions() const;
         void performAction(int action, Enemy& enemy);
+        void gainGold(int gold);
         
 
         static string raceToString(Race race);

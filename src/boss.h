@@ -11,13 +11,17 @@ using namespace std;
 
 class Boss{
     public:
+
+        // Constructor
         Boss(int level, int healthPoints, int attack);
 
+        // Getters
         string getName() const;
         int getLevel() const;
         int getHealthPoints() const;
         int getAttack() const;
 
+        // Setters
         void setHealthPoints(int healthPoints);
         void attack() const;
         

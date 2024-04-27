@@ -12,7 +12,7 @@ Character::Character()
 
 Character::Character(string name, Gender gender, Race race, Orientation orientation, CharacterClass charClass)
     : name(name), gender(gender), race(race), orientation(orientation), charClass(charClass), gold(0),
-      skillPoints(1), healthPoints(100), manaPoints(50), intellect(5), strength(5), agility(5), level(1) {
+      skillPoints(1), healthPoints(200), manaPoints(50), intellect(5), strength(5), agility(5), level(1) {
 
     switch (charClass) {
         case Mage:
@@ -30,6 +30,7 @@ Character::Character(string name, Gender gender, Race race, Orientation orientat
     }
 }
 
+// Getters
 
 string Character::getName() const {
     return name;
@@ -87,6 +88,7 @@ int Character::getLevel() const {
     return level;
 }
 
+// Setters
 
 void Character::setInitialWeapon(string weapon) {
     initialWeapon = weapon;
@@ -132,6 +134,8 @@ const vector<string>& Character::getItems() const {
     return items;
 }
 
+// Other methods
+
 void Character::gainExperience(int exp) {
     exp = rand() % 5 + 2;
     experience += exp;
@@ -140,6 +144,13 @@ void Character::gainExperience(int exp) {
     if (checkLevelUp()) {
         levelUp();
     }
+}
+
+void Character :: gainGold(int gold) {
+    gold = rand() % 41 + 30;
+    int money = rand() % 41 + 30;
+    money += gold;
+    cout << "You have gained " << gold << " gold!" << endl;
 }
 
 bool Character::checkLevelUp(){
@@ -189,6 +200,8 @@ void Character :: displayActions() const {
 
 void Character::performAction(int action, Enemy& enemy) {}
 
+// Static methods
+
 string Character::raceToString(Race race) {
     switch (race) {
         case Human: return "Human";
@@ -218,6 +231,8 @@ string Character::classToString(CharacterClass charClass) {
         
     }
 }
+
+// Overloaded operators
 
 istream& operator>>(istream& is, Character& character) {
     int gender, race, orientation, charClass;

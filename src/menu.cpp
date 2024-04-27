@@ -1016,6 +1016,7 @@ void Menu::showGameMenu(Character& character) {
                 break;
             }
             case 3:{
+                manageSkills(character);
                 break;
             }
             case 4:{

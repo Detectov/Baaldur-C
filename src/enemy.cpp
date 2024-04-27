@@ -3,11 +3,14 @@
 
 using namespace std;
 
+
 vector<string> Enemy::names = {"Goblin", "Harpy", "Hobgoblin", "Dreg", "Vandal", "Minotaur", "Hydra", "Thrall", "Acolyte", "Witch", "Centurion"};
 
+// Constructor
 Enemy::Enemy(int level, int healthPoints, int attack)
     : level(level), healthPoints(75), dmg(attack), name(getRandomName()) {}
 
+    //Getters
     string Enemy::getRandomName(){
         int index = rand() % names.size();  
         return names[index];

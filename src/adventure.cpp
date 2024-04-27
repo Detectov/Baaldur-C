@@ -101,6 +101,8 @@ void Adventure::combat(Character& character, Enemy& enemy){
                     character.attack(enemies[enemyChoice - 1]);
                     if (enemies[enemyChoice - 1].getHealthPoints() <= 0){
                         cout << "You have defeated " << enemies[enemyChoice- 1].getName() << "!" << endl;
+                        character.gainExperience(10);
+                        character.gainGold(50);
                         enemies.erase(enemies.begin() + enemyChoice - 1);
                     }
                 } else {
